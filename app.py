@@ -96,7 +96,7 @@ tools = [
         name="JokeTool",
         func=joke_tool,
         description="Tell a random joke. Input can be anything."
-    )
+    ),
     Tool(
         name="RollDice",
         func=lambda sides=6: roll_dice(int(sides)),
