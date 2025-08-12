@@ -60,6 +60,14 @@ def joke_tool(_: str) -> str:
     ]
     return random.choice(jokes)
 
+def roll_dice(sides: int = 6) -> str:
+    #Rolls a dice with the given number of sides.
+    return f"You rolled a {random.randint(1, sides)}"
+
+def flip_coin() -> str:
+    #Flips a coin and returns Heads or Tails.
+    return random.choice(["Heads", "Tails"])
+
 #Step 3: Setup LLM
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
@@ -88,6 +96,16 @@ tools = [
         name="JokeTool",
         func=joke_tool,
         description="Tell a random joke. Input can be anything."
+    )
+    Tool(
+        name="RollDice",
+        func=lambda sides=6: roll_dice(int(sides)),
+        description="Rolls a dice. Input should be the number of sides (default 6)."
+    ),
+    Tool(
+        name="FlipCoin",
+        func=lambda _: flip_coin(),
+        description="Flips a coin and returns Heads or Tails."
     )
 ]
 
