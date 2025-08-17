@@ -2,7 +2,9 @@ streamlit
 langchain-google-genai
 langchain
 langgraph
+langgraph-supervisor
 python-dotenv
 google-generativeai
 langchain-community
 faiss-cpu
+requests
