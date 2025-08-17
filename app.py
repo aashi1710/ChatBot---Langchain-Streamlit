@@ -109,6 +109,7 @@ agent3 = ToolNode(tools=agent3_tools, name="Agent3")
 agent4 = ToolNode(tools=agent4_tools, name="Agent4")
 
 
+
 #Step 6: Supervisor Agent
 supervisor = create_supervisor(
     agents=[agent1, agent2, agent3, agent4],
@@ -139,15 +140,18 @@ builder.add_node("supervisor", supervisor_runnable)
 builder.add_node("Agent1", agent1)
 builder.add_node("Agent2", agent2)
 builder.add_node("Agent3", agent3)
+builder.add_node("Agent4", agent4)
 
 # Define edges
 builder.add_edge("supervisor", "Agent1")
 builder.add_edge("supervisor", "Agent2")
 builder.add_edge("supervisor", "Agent3")
+builder.add_edge("supervisor", "Agent4")
 
 builder.add_edge("Agent1", END)
 builder.add_edge("Agent2", END)
 builder.add_edge("Agent3", END)
+builder.add_edge("Agent4", END)
 
 # Entry point
 builder.set_entry_point("supervisor")
