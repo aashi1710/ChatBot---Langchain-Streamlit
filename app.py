@@ -116,7 +116,7 @@ You are a supervisor. Route user queries to the correct agent and return the res
 - Agent1: Dice rolls + Coin flips
 - Agent2: Math operations + Jokes
 - Agent3: RAG knowledge 
-- Agent4: Real-time Weather (via weather API)
+- Agent4: Weather of a city provided
 
 """
 )
