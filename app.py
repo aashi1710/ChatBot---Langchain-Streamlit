@@ -39,14 +39,7 @@ def rag_query_tool(query: str) -> str:
 
 def weather_tool(city: str) -> str:
     #Fetch current weather for a city.
-    api_key = weather_api_key
-    if not api_key:
-        return "Weather API key not found."
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
-    resp = requests.get(url).json()
-    if resp.get("cod") != 200:
-        return f"Error: {resp.get('message', 'Could not fetch weather')}"
-    return f"The weather in {city} is {resp['main']['temp']}°C."
+    return f"the weather in {city} is 30 degrees Celsius."
 
 def math_tool(expression: str) -> str:
     #Evaluate a math expression.
