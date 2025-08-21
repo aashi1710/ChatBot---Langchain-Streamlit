@@ -148,13 +148,10 @@ builder.add_edge("supervisor", "Agent2")
 builder.add_edge("supervisor", "Agent3")
 builder.add_edge("supervisor", "Agent4")
 
-builder.add_edge("Agent1", "supervisor")
-builder.add_edge("Agent2", "supervisor")
-builder.add_edge("Agent3", "supervisor")
-builder.add_edge("Agent4", "supervisor")
-
-
-builder.add_edge("supervisor", END)
+builder.add_edge("Agent1", END)
+builder.add_edge("Agent2", END)
+builder.add_edge("Agent3", END)
+builder.add_edge("Agent4", END)
 
 # Entry point
 builder.set_entry_point("supervisor")
