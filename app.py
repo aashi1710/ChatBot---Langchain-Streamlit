@@ -39,7 +39,14 @@ def rag_query_tool(query: str) -> str:
 
 def weather_tool(city: str) -> str:
     #Fetch current weather for a city.
-    return f"the weather in {city} is 30 degrees Celsius."
+    api_key = weather_api_key
+    if not api_key:
+        return "Weather API key not found."
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    resp = requests.get(url).json()
+    if resp.get("cod") != 200:
+        return f"Error: {resp.get('message', 'Could not fetch weather')}"
+    return f"The weather in {city} is {resp['main']['temp']}°C."
 
 def math_tool(expression: str) -> str:
     #Evaluate a math expression.
@@ -116,7 +123,7 @@ You are a supervisor. Route user queries to the correct agent and return the res
 - Agent1: Dice rolls + Coin flips
 - Agent2: Math operations + Jokes
 - Agent3: RAG knowledge 
-- Agent4: Weather of a city provided
+- Agent4: Weather of a city provided( using weather API)
 
 """
 )
